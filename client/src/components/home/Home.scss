@@ -1,3 +1,10 @@
 .product-container{
     padding: 12px;
+    .card-img{
+        max-height: 236px;
+    }
+    .button-set{
+        display: flex;
+        justify-content: space-between;
+    }
 }
