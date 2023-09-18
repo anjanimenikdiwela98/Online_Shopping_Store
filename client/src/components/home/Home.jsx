@@ -2,6 +2,7 @@ import React from 'react';
 import './Home.scss';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { Link } from "react-router-dom";
 
 export default function Home(props) {
   const { product, onAdd } = props;
@@ -19,7 +20,7 @@ export default function Home(props) {
                   bulk of the card's content.
                 </Card.Text>
                 <div className="button-set">
-                  <Button variant="primary">More</Button>
+                  <Button variant="primary"><Link to="/product">More</Link></Button>
                   <Button variant="secondary" onClick={() => onAdd(product)}><i class="fa fa-cart-plus" aria-hidden="true"></i></Button>
                 </div>
               </Card.Body>
@@ -35,7 +36,7 @@ export default function Home(props) {
                   bulk of the card's content.
                 </Card.Text>
                 <div className="button-set">
-                  <Button variant="primary">More</Button>
+                  <Button variant="primary"><Link to="/product">More</Link></Button>
                   <Button variant="secondary"><i class="fa fa-cart-plus" aria-hidden="true"></i></Button>
                 </div>
               </Card.Body>
@@ -51,7 +52,7 @@ export default function Home(props) {
                   bulk of the card's content.
                 </Card.Text>
                 <div className="button-set">
-                  <Button variant="primary">More</Button>
+                  <Button variant="primary"><Link to="/product">More</Link></Button>
                   <Button variant="secondary"><i class="fa fa-cart-plus" aria-hidden="true"></i></Button>
                 </div>
               </Card.Body>
@@ -67,7 +68,7 @@ export default function Home(props) {
                   bulk of the card's content.
                 </Card.Text>
                 <div className="button-set">
-                  <Button variant="primary">More</Button>
+                  <Button variant="primary"><Link to="/product">More</Link></Button>
                   <Button variant="secondary"><i class="fa fa-cart-plus" aria-hidden="true"></i></Button>
                 </div>
               </Card.Body>
@@ -83,7 +84,7 @@ export default function Home(props) {
                   bulk of the card's content.
                 </Card.Text>
                 <div className="button-set">
-                  <Button variant="primary">More</Button>
+                  <Button variant="primary"><Link to="/product">More</Link></Button>
                   <Button variant="secondary"><i class="fa fa-cart-plus" aria-hidden="true"></i></Button>
                 </div>
               </Card.Body>
@@ -99,7 +100,7 @@ export default function Home(props) {
                   bulk of the card's content.
                 </Card.Text>
                 <div className="button-set">
-                  <Button variant="primary">More</Button>
+                  <Button variant="primary"><Link to="/product">More</Link></Button>
                   <Button variant="secondary"><i class="fa fa-cart-plus" aria-hidden="true"></i></Button>
                 </div>
               </Card.Body>

@@ -3,6 +3,9 @@ import Header from './components/header/Header';
 import Home from './components/home/Home';
 import data from './data/items';
 import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Product from './components/product/Product';
+import Cart from './components/cart/Cart';
 
 function App() {
   const { products } = data;
@@ -33,8 +36,14 @@ function App() {
   };
   return (
     <>
-      <Header countCartItems={cartItems.length}></Header>
-      <Home products={products} onAdd={onAdd}></Home>
+      <Header countCartItems={cartItems.length} />
+        <Home products={products} onAdd={onAdd} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/product" element={<Product />} />
+        </Routes>
+        
     </>
   );
 }
