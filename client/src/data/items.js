@@ -1,23 +1,74 @@
 const data = {
-  products: [
-    {
-      id: '1',
-      name: 'MacBook',
-      price: 1400,
-      image: 'https://picsum.photos/id/180/2400/1600',
-    },
-    {
-      id: '2',
-      name: 'Old Car',
-      price: 2400,
-      image: 'https://picsum.photos/id/111/4400/2656',
-    },
-    {
-      id: '3',
-      name: 'W Shoes',
-      price: 1000,
-      image: 'https://picsum.photos/id/21/3008/2008',
-    },
-  ],
+productList: [
+  {
+    id: 1,
+    name: 'Throwback Hip Bag AA',
+    href: '#',
+    color: 'Salmon',
+    price: '$90.00',
+    quantity: 1,
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg',
+    imageAlt: 'Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.',
+    description: 'asvahd gvh fwvfe ngjdn jsdjs jdsd dnagjdgjd '
+  },
+  {
+    id: 2,
+    name: 'Medium Stuff Satchel QSDVX',
+    href: '#',
+    color: 'Blue',
+    price: '$32.00',
+    quantity: 1,
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg',
+    imageAlt:
+      'Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.',
+    description: 'asvahd gvh fwvfe ngjdn jsdjs jdsd dnagjdgjd '
+  },
+  {
+    id: 3,
+    name: 'Throwback Hip QWERTY Bag',
+    href: '#',
+    color: 'Salmon',
+    price: '$90.00',
+    quantity: 1,
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg',
+    imageAlt: 'Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.',
+    description: 'asvahd gvh fwvfe ngjdn jsdjs jdsd dnagjdgjd '
+  },
+  {
+    id: 4,
+    name: 'Medium Stuff Satchel AGGFAC',
+    href: '#',
+    color: 'Blue',
+    price: '$32.00',
+    quantity: 1,
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg',
+    imageAlt:
+      'Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.',
+    description: 'asvahd gvh fwvfe ngjdn jsdjs jdsd dnagjdgjd '
+  },
+  {
+    id: 5,
+    name: 'Throwback ABC Hip Bag',
+    href: '#',
+    color: 'Salmon',
+    price: '$90.00',
+    quantity: 1,
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg',
+    imageAlt: 'Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.',
+    description: 'asvahd gvh fwvfe ngjdn jsdjs jdsd dnagjdgjd '
+  },
+  {
+    id: 6,
+    name: 'Medium CCC Stuff Satchel',
+    href: '#',
+    color: 'Blue',
+    price: '$32.00',
+    quantity: 1,
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg',
+    imageAlt:
+      'Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.',
+    description: 'asvahd gvh fwvfe ngjdn jsdjs jdsd dnagjdgjd '
+  },
+],
 };
 export default data;
