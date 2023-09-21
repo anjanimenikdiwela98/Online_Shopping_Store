@@ -85,25 +85,24 @@ export default function Header(props) {
                         ''
                     )}
                 </Button>
-                <Offcanvas show={show} onHide={handleClose} placement='end'>
-                    <aside className="block col-1">
+                <Offcanvas className="cart" show={show} onHide={handleClose} placement='end'>
                         <h2>Cart Items</h2>
                         <div>
                             {cartItems.length === 0 && <div>Cart is empty</div>}
                             {cartItems.map((item) => (
-                                <div key={item.id} className="row">
-                                    <div className="">{item.name}</div>
-                                    <div className="">
-                                        <button onClick={() => onRemove(item)} className="remove">
+                                <div key={item.id} className="row w-100">
+                                    <div className="col-2">{item.name}</div>
+                                    <div className="col-2">
+                                        <button onClick={() => onRemove(cartItems)} className="remove">
                                             -
                                         </button>{' '}
-                                        <button onClick={() => onAdd(item)} className="add">
+                                        <button onClick={() => onAdd(cartItems)} className="add">
                                             +
                                         </button>
                                     </div>
 
-                                    <div className="">
-                                        {item.qty} x ${item.price}
+                                    <div className="col-2">
+                                        {item.qty} x {item.price}
                                     </div>
                                 </div>
                             ))}
@@ -143,7 +142,6 @@ export default function Header(props) {
                                 </>
                             )} */}
                         </div>
-                    </aside>
                 </Offcanvas>
             </Container>
         </Navbar>

@@ -8,7 +8,7 @@ import Cart from './components/cart/Cart';
 import Product from './components/product/Product';
 
 function App() {
-  const { products } = data;
+  const { product } = data;
   const [cartItems, setCartItems] = useState([]);
   const onAdd = (product) => {
     const exist = cartItems.find((x) => x.id === product.id);
@@ -22,6 +22,7 @@ function App() {
       setCartItems([...cartItems, { ...product, qty: 1 }]);
     }
   };
+
   const onRemove = (product) => {
     const exist = cartItems.find((x) => x.id === product.id);
     if (exist.qty === 1) {
@@ -36,7 +37,7 @@ function App() {
   };
   return (
     <>
-      <Header cartItems={cartItems} countCartItems={cartItems.length} />
+      <Header cartItems={cartItems} countCartItems={cartItems.length} onAdd={onAdd} onRemove={onRemove} />
       <Home onAdd={onAdd} />
       <Routes>
         <Route path="/cart" element={<Cart />} />
@@ -44,7 +45,7 @@ function App() {
           <Route index element={<Products />} />
           <Route path=":id" element={<Product />} />
         </Route> */}
-        <Route path='/product/:id' element={<Product />}/>
+        <Route path='/product/:id' element={<Product onAdd={onAdd} onRemove={onRemove}/>}/>
       </Routes>
     </>
   );
