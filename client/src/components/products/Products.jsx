@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import './Products.scss';
 
 export default function Products(props) {
-    const { onAdd,products } = props;
+    const { onAdd,products,cartItemCount } = props;
   return (
     <main className="product-container">
     <div className="row">
@@ -19,11 +19,11 @@ export default function Products(props) {
                 {product.description}
               </Card.Text>
               <div className="button-set">
-                <Button variant="primary">
-                  <Link to="/product">More</Link>
-                  {/* <a href={'product/' + product.id}>More</a> */}
+                <Button variant="info">
+                  {/* <Link to="/product">View Detail</Link> */}
+                  <a href={'product/' + product.id}>View Detail</a>
                 </Button>
-                <Button variant="secondary" onClick={() => onAdd(product)}><i class="fa fa-cart-plus" aria-hidden="true"></i></Button>
+                <Button variant="secondary" onClick={() => onAdd(product,cartItemCount)}><i class="fa fa-cart-plus" aria-hidden="true"></i></Button>
               </div>
             </Card.Body>
           </Card>

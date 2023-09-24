@@ -11,7 +11,8 @@ export default function Home() {
 					<div class="row justify-content-between">
 						<div class="col-lg-5">
 							<div class="intro-excerpt">
-								<h1>Modern Interior <span clsas="d-block">Design Studio</span></h1>
+                <h6>10% OFF YOUR FIRST ORDER</h6>
+								<h1>Reasonable Price</h1>
 								<p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
 								<p>
                   {/* <a href="" class="btn btn-secondary me-2">Shop Now</a> */}

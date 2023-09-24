@@ -100,7 +100,10 @@ export default function Header(props) {
                     )}
                 </Button>
                 <Offcanvas className="cart" show={show} onHide={handleClose} placement='end'>
-                    <h2>Cart Items</h2>
+                    <div className="d-flex justify-content-between mb-3">
+                        <h2>Cart Items</h2>
+                        <button class="btn btn-sm btn-secondary"><Link to="/cart">More</Link></button>
+                    </div>
 
                     <div>
                         {cartItems.length === 0 && <div>Cart is empty</div>}

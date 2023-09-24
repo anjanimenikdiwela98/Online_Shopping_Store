@@ -23,9 +23,22 @@
     // }
 }
 .offcanvas.offcanvas-end{
-  width: 36% !important;
+  width: 460px !important;
+  padding: 8px;
   overflow: auto;
   .image{
-    width: 175px;
+    width: 200px;
+  }
+  @media (max-width: 768px) {
+    width: 375px;
+    .image{
+      width: 170px;
+    }	
+  }
+	@media (max-width: 480px) {
+    width: 300px;
+    .image{
+      width: 120px;
+    }	
   }
 }

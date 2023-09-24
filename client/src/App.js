@@ -10,18 +10,20 @@ import Products from './components/products/Products';
 
 function App() {
   const product = data;
-  let cartItemCount = 0
+  let cartItemCount = 1;
   const [cartItems, setCartItems] = useState([]);
   const onAdd = (product) => {
-    cartItemCount = cartItemCount + 1
     const exist = cartItems.find((x) => x.id === product.id);
     if (exist) {
+      cartItemCount = cartItemCount + 1
       setCartItems(
         cartItems.map((x) =>
           x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
         )
       );
+      console.log('Inner CartItemsCount',cartItemCount)
     } else {
+      cartItemCount = cartItemCount + 1
       setCartItems([...cartItems, { ...product, qty: 1 }]);
     }
   };
@@ -45,10 +47,10 @@ function App() {
       <Header cartItems={cartItems} countCartItems={cartItems.length} onAdd={onAdd} onRemove={onRemove} />
       <Routes>
         <Route path="" element={<Home/>} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/cart" element={<Cart cartItems={cartItems} countCartItems={cartItems.length} onAdd={onAdd} onRemove={onRemove} />} />
         <Route path='/products'>
-          <Route index element={<Products  products={product} onAdd={onAdd}  />} />
-          <Route path="product" element={<Product  products={product} onAdd={onAdd} />} />
+          <Route index element={<Products  products={product} onAdd={onAdd}  cartItemCount={cartItemCount}/>} />
+          <Route path="product/:id" element={<Product  products={product} onAdd={onAdd} />} />
         </Route>
       </Routes>
     </>
