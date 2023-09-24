@@ -1,36 +1,32 @@
 import React from 'react';
 import './Home.scss';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
-import data from '../../data/items';
 
-const products = data;
-export default function Home(props) {
-  const { onAdd } = props;
+
+export default function Home() {
   return (
     <>
-      <main className="product-container">
-        <div className="row">
-          {products.productList?.map((product) => (
-          <div  key={product.id} className="col-lg-3 col-md-4 col-sm-6 mb-3">
-              <Card>
-                <Card.Img className="card-img" variant="top" src={product.imageSrc} />
-                <Card.Body>
-                  <Card.Title>{product.name}</Card.Title>
-                  <Card.Text>
-                    {product.description}
-                  </Card.Text>
-                  <div className="button-set">
-                    <Button variant="primary"><a href={'/product/' + product.id}>More</a></Button>
-                    <Button variant="secondary" onClick={() => onAdd(product)}><i class="fa fa-cart-plus" aria-hidden="true"></i></Button>
-                  </div>
-                </Card.Body>
-              </Card>
-            </div>
-            ))}
-        </div>
-      </main>
+    <div class="hero">
+				<div class="container">
+					<div class="row justify-content-between">
+						<div class="col-lg-5">
+							<div class="intro-excerpt">
+								<h1>Modern Interior <span clsas="d-block">Design Studio</span></h1>
+								<p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
+								<p>
+                  {/* <a href="" class="btn btn-secondary me-2">Shop Now</a> */}
+                  <Link to="/products">Shop Now</Link>
+                </p>
+							</div>
+						</div>
+						<div class="col-lg-7">
+							<div class="hero-img-wrap">
+								{/* <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg" class="img-fluid"/> */}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
     </>
   )
 }

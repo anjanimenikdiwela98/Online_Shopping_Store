@@ -1,4 +1,7 @@
 /* The following line can be included in a src/App.scss */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import '~bootstrap/scss/bootstrap';
 .App {
   text-align: center;
