@@ -6,6 +6,7 @@ import './Products.scss';
 
 export default function Products(props) {
     const { onAdd,products,cartItemCount } = props;
+    console.log(products[0])
   return (
     <main className="product-container">
     <div className="row">

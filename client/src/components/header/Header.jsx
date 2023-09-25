@@ -121,7 +121,7 @@ export default function Header(props) {
                                                             <i class="fa fa-minus"></i>
                                                         </button>
                                                     </div>
-                                                    <input type="text" class="form-control form-control-sm bg-secondary text-center" value={item.quantity} />
+                                                    <input type="text" class="form-control form-control-sm bg-secondary text-center" value={item.qty} />
                                                     <div class="input-group-btn">
                                                         <button class="btn btn-sm btn-primary btn-plus" onClick={() => onAdd(item)}>
                                                             <i class="fa fa-plus"></i>

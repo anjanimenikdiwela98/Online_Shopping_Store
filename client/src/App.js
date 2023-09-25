@@ -9,13 +9,23 @@ import Product from './components/product/Product';
 import Products from './components/products/Products';
 
 function App() {
+//   const [count,SetCount] = useState(0);
+// let [cartItemCount,setCount]= useState(1);
+
+// function Increment(){
+//  useState(prevCount => prevCount+1)
+// }
+
   const product = data;
   let cartItemCount = 1;
   const [cartItems, setCartItems] = useState([]);
   const onAdd = (product) => {
     const exist = cartItems.find((x) => x.id === product.id);
+    // setCount(
+    //   cartItemCount = cartItemCount + 1
+    // )
     if (exist) {
-      cartItemCount = cartItemCount + 1
+      // cartItemCount = cartItemCount + 1
       setCartItems(
         cartItems.map((x) =>
           x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
@@ -23,7 +33,7 @@ function App() {
       );
       console.log('Inner CartItemsCount',cartItemCount)
     } else {
-      cartItemCount = cartItemCount + 1
+      // cartItemCount = cartItemCount + 1
       setCartItems([...cartItems, { ...product, qty: 1 }]);
     }
   };
@@ -44,14 +54,16 @@ function App() {
   console.log('CartItemsCount',cartItemCount)
   return (
     <>
-      <Header cartItems={cartItems} countCartItems={cartItems.length} onAdd={onAdd} onRemove={onRemove} />
+      <Header cartItems={cartItems} onAdd={onAdd} onRemove={onRemove}  countCartItems={cartItems.length}/>
       <Routes>
         <Route path="" element={<Home/>} />
         <Route path="/cart" element={<Cart cartItems={cartItems} countCartItems={cartItems.length} onAdd={onAdd} onRemove={onRemove} />} />
-        <Route path='/products'>
+        {/* <Route path='/products'>
           <Route index element={<Products  products={product} onAdd={onAdd}  cartItemCount={cartItemCount}/>} />
           <Route path="product/:id" element={<Product  products={product} onAdd={onAdd} />} />
-        </Route>
+        </Route> */}
+        <Route path='/products' element={<Products  products={product} onAdd={onAdd}  cartItemCount={cartItemCount}/>} />
+        <Route path="product/:id" element={<Product  products={product} onAdd={onAdd} />} />
       </Routes>
     </>
   );
