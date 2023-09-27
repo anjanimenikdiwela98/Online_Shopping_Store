@@ -1,262 +1,333 @@
 import React from 'react';
 import data from '../../data/items';
 import { useParams } from 'react-router-dom';
+import { useState } from 'react'
+import { StarIcon } from '@heroicons/react/20/solid'
+import { RadioGroup } from '@headlessui/react'
+
+const product = {
+  name: 'Basic Tee 6-Pack',
+  price: '$192',
+  href: '#',
+  breadcrumbs: [
+    { id: 1, name: 'Men', href: '#' },
+    { id: 2, name: 'Clothing', href: '#' },
+  ],
+  images: [
+    {
+      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg',
+      alt: 'Two each of gray, white, and black shirts laying flat.',
+    },
+    {
+      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-01.jpg',
+      alt: 'Model wearing plain black basic tee.',
+    },
+    {
+      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-02.jpg',
+      alt: 'Model wearing plain gray basic tee.',
+    },
+    {
+      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg',
+      alt: 'Model wearing plain white basic tee.',
+    },
+  ],
+  colors: [
+    { name: 'White', class: 'bg-white', selectedClass: 'ring-gray-400' },
+    { name: 'Gray', class: 'bg-gray-200', selectedClass: 'ring-gray-400' },
+    { name: 'Black', class: 'bg-gray-900', selectedClass: 'ring-gray-900' },
+  ],
+  sizes: [
+    { name: 'XXS', inStock: false },
+    { name: 'XS', inStock: true },
+    { name: 'S', inStock: true },
+    { name: 'M', inStock: true },
+    { name: 'L', inStock: true },
+    { name: 'XL', inStock: true },
+    { name: '2XL', inStock: true },
+    { name: '3XL', inStock: true },
+  ],
+  description:
+    'The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: "Black". Need to add an extra pop of color to your outfit? Our white tee has you covered.',
+  highlights: [
+    'Hand cut and sewn locally',
+    'Dyed with our proprietary colors',
+    'Pre-washed & pre-shrunk',
+    'Ultra-soft 100% cotton',
+  ],
+  details:
+    'The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming "Charcoal Gray" limited release.',
+}
+const reviews = { href: '#', average: 4, totalCount: 117 }
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
+}
 
 export default function Product(props) {
-    let { id } = useParams()
-    const { onAdd } = props;
-    var xc = data.filter((item) => {
-        return item.id == id
-    })
-    const product = xc[0]
-    console.log('Selected product',xc)
-    console.log('ID', id)
+    // let { id } = useParams()
+    // const { onAdd } = props;
+    // var xc = data.filter((item) => {
+    //     return item.id == id
+    // })
+    // const product = xc[0]
+    // console.log('Selected product',xc)
+    // console.log('ID', id)
     // console.log('productid',products.id)
+    const [selectedColor, setSelectedColor] = useState(product.colors[0])
+  const [selectedSize, setSelectedSize] = useState(product.sizes[2])
     return (
+        // <div>
+        //       <img className="small" src={product.imageSrc} alt={product.imageAlt} style={{width: '400px'}}/>
+        //       <h3>{product.name}</h3>
+        //       <p>{product.description}</p>
+        //       <div>${product.price}</div>
+        //       <div>
+        //         <button variant="primary" onClick={() => onAdd(product)}>Add To Cart</button>
+        //       </div>
+        // </div>
+
+<div className="bg-white">
+<div className="pt-6">
+  <nav aria-label="Breadcrumb">
+    <ol role="list" className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+      {product.breadcrumbs.map((breadcrumb) => (
+        <li key={breadcrumb.id}>
+          <div className="flex items-center">
+            <a href={breadcrumb.href} className="mr-2 text-sm font-medium text-gray-900">
+              {breadcrumb.name}
+            </a>
+            <svg
+              width={16}
+              height={20}
+              viewBox="0 0 16 20"
+              fill="currentColor"
+              aria-hidden="true"
+              className="h-5 w-4 text-gray-300"
+            >
+              <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
+            </svg>
+          </div>
+        </li>
+      ))}
+      <li className="text-sm">
+        <a href={product.href} aria-current="page" className="font-medium text-gray-500 hover:text-gray-600">
+          {product.name}
+        </a>
+      </li>
+    </ol>
+  </nav>
+
+  {/* Image gallery */}
+  <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
+    <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
+      <img
+        src={product.images[0].src}
+        alt={product.images[0].alt}
+        className="h-full w-full object-cover object-center"
+      />
+    </div>
+    <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
+      <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
+        <img
+          src={product.images[1].src}
+          alt={product.images[1].alt}
+          className="h-full w-full object-cover object-center"
+        />
+      </div>
+      <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
+        <img
+          src={product.images[2].src}
+          alt={product.images[2].alt}
+          className="h-full w-full object-cover object-center"
+        />
+      </div>
+    </div>
+    <div className="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
+      <img
+        src={product.images[3].src}
+        alt={product.images[3].alt}
+        className="h-full w-full object-cover object-center"
+      />
+    </div>
+  </div>
+
+  {/* Product info */}
+  <div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
+    <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
+      <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{product.name}</h1>
+    </div>
+
+    {/* Options */}
+    <div className="mt-4 lg:row-span-3 lg:mt-0">
+      <h2 className="sr-only">Product information</h2>
+      <p className="text-3xl tracking-tight text-gray-900">{product.price}</p>
+
+      {/* Reviews */}
+      <div className="mt-6">
+        <h3 className="sr-only">Reviews</h3>
+        <div className="flex items-center">
+          <div className="flex items-center">
+            {[0, 1, 2, 3, 4].map((rating) => (
+              <StarIcon
+                key={rating}
+                className={classNames(
+                  reviews.average > rating ? 'text-gray-900' : 'text-gray-200',
+                  'h-5 w-5 flex-shrink-0'
+                )}
+                aria-hidden="true"
+              />
+            ))}
+          </div>
+          <p className="sr-only">{reviews.average} out of 5 stars</p>
+          <a href={reviews.href} className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
+            {reviews.totalCount} reviews
+          </a>
+        </div>
+      </div>
+
+      <form className="mt-10">
+        {/* Colors */}
         <div>
-              <img className="small" src={product.imageSrc} alt={product.imageAlt} style={{width: '400px'}}/>
-              <h3>{product.name}</h3>
-              <p>{product.description}</p>
-              <div>${product.price}</div>
-              <div>
-                <button variant="primary" onClick={() => onAdd(product)}>Add To Cart</button>
-              </div>
+          <h3 className="text-sm font-medium text-gray-900">Color</h3>
+
+          <RadioGroup value={selectedColor} onChange={setSelectedColor} className="mt-4">
+            <RadioGroup.Label className="sr-only">Choose a color</RadioGroup.Label>
+            <div className="flex items-center space-x-3">
+              {product.colors.map((color) => (
+                <RadioGroup.Option
+                  key={color.name}
+                  value={color}
+                  className={({ active, checked }) =>
+                    classNames(
+                      color.selectedClass,
+                      active && checked ? 'ring ring-offset-1' : '',
+                      !active && checked ? 'ring-2' : '',
+                      'relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none'
+                    )
+                  }
+                >
+                  <RadioGroup.Label as="span" className="sr-only">
+                    {color.name}
+                  </RadioGroup.Label>
+                  <span
+                    aria-hidden="true"
+                    className={classNames(
+                      color.class,
+                      'h-8 w-8 rounded-full border border-black border-opacity-10'
+                    )}
+                  />
+                </RadioGroup.Option>
+              ))}
+            </div>
+          </RadioGroup>
         </div>
 
-        // <div class="container-fluid py-5">
-        //     <div class="row px-xl-5">
-        //         <div class="col-lg-5 pb-5">
-        //             <img class="w-100 h-100" src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg" alt="Image" />
-        //             <div id="product-carousel" class="carousel slide d-none" data-ride="carousel">
-        //                 <div class="carousel-inner border">
-        //                     <div class="carousel-item active">
-        //                         <img class="w-100 h-100" src="img/product-1.jpg" alt="Image" />
-        //                     </div>
-        //                     <div class="carousel-item">
-        //                         <img class="w-100 h-100" src="img/product-2.jpg" alt="Image" />
-        //                     </div>
-        //                     <div class="carousel-item">
-        //                         <img class="w-100 h-100" src="img/product-3.jpg" alt="Image" />
-        //                     </div>
-        //                     <div class="carousel-item">
-        //                         <img class="w-100 h-100" src="img/product-4.jpg" alt="Image" />
-        //                     </div>
-        //                 </div>
-        //                 <a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
-        //                     <i class="fa fa-2x fa-angle-left text-dark"></i>
-        //                 </a>
-        //                 <a class="carousel-control-next" href="#product-carousel" data-slide="next">
-        //                     <i class="fa fa-2x fa-angle-right text-dark"></i>
-        //                 </a>
-        //             </div>
-        //         </div>
+        {/* Sizes */}
+        <div className="mt-10">
+          <div className="flex items-center justify-between">
+            <h3 className="text-sm font-medium text-gray-900">Size</h3>
+            <a href="#" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
+              Size guide
+            </a>
+          </div>
 
-        //         <div class="col-lg-7 pb-5">
-        //             <h3 class="font-weight-semi-bold">Colorful Stylish Shirt</h3>
-        //             <div class="d-flex mb-3">
-        //                 <div class="text-primary mr-2">
-        //                     <small class="fas fa-star"></small>
-        //                     <small class="fas fa-star"></small>
-        //                     <small class="fas fa-star"></small>
-        //                     <small class="fas fa-star-half-alt"></small>
-        //                     <small class="far fa-star"></small>
-        //                 </div>
-        //                 <small class="pt-1">(50 Reviews)</small>
-        //             </div>
-        //             <h3 class="font-weight-semi-bold mb-4">$150.00</h3>
-        //             <p class="mb-4">Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc invidunt ipsum et, labore clita lorem magna lorem ut. Erat lorem duo dolor no sea nonumy. Accus labore stet, est lorem sit diam sea et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.</p>
-        //             <div class="d-flex mb-3">
-        //                 <p class="text-dark font-weight-medium mb-0 mr-3">Sizes:</p>
-        //                 <form>
-        //                     <div class="custom-control custom-radio custom-control-inline">
-        //                         <input type="radio" class="custom-control-input" id="size-1" name="size" />
-        //                         <label class="custom-control-label" for="size-1">XS</label>
-        //                     </div>
-        //                     <div class="custom-control custom-radio custom-control-inline">
-        //                         <input type="radio" class="custom-control-input" id="size-2" name="size" />
-        //                         <label class="custom-control-label" for="size-2">S</label>
-        //                     </div>
-        //                     <div class="custom-control custom-radio custom-control-inline">
-        //                         <input type="radio" class="custom-control-input" id="size-3" name="size" />
-        //                         <label class="custom-control-label" for="size-3">M</label>
-        //                     </div>
-        //                     <div class="custom-control custom-radio custom-control-inline">
-        //                         <input type="radio" class="custom-control-input" id="size-4" name="size" />
-        //                         <label class="custom-control-label" for="size-4">L</label>
-        //                     </div>
-        //                     <div class="custom-control custom-radio custom-control-inline">
-        //                         <input type="radio" class="custom-control-input" id="size-5" name="size" />
-        //                         <label class="custom-control-label" for="size-5">XL</label>
-        //                     </div>
-        //                 </form>
-        //             </div>
-        //             <div class="d-flex mb-4">
-        //                 <p class="text-dark font-weight-medium mb-0 mr-3">Colors:</p>
-        //                 <form>
-        //                     <div class="custom-control custom-radio custom-control-inline">
-        //                         <input type="radio" class="custom-control-input" id="color-1" name="color" />
-        //                         <label class="custom-control-label" for="color-1">Black</label>
-        //                     </div>
-        //                     <div class="custom-control custom-radio custom-control-inline">
-        //                         <input type="radio" class="custom-control-input" id="color-2" name="color" />
-        //                         <label class="custom-control-label" for="color-2">White</label>
-        //                     </div>
-        //                     <div class="custom-control custom-radio custom-control-inline">
-        //                         <input type="radio" class="custom-control-input" id="color-3" name="color" />
-        //                         <label class="custom-control-label" for="color-3">Red</label>
-        //                     </div>
-        //                     <div class="custom-control custom-radio custom-control-inline">
-        //                         <input type="radio" class="custom-control-input" id="color-4" name="color" />
-        //                         <label class="custom-control-label" for="color-4">Blue</label>
-        //                     </div>
-        //                     <div class="custom-control custom-radio custom-control-inline">
-        //                         <input type="radio" class="custom-control-input" id="color-5" name="color" />
-        //                         <label class="custom-control-label" for="color-5">Green</label>
-        //                     </div>
-        //                 </form>
-        //             </div>
-        //             <div class="d-flex align-items-center mb-4 pt-2">
-        //                 <div class="input-group quantity mr-3">
-        //                     <div class="input-group-btn">
-        //                         <button class="btn btn-primary btn-minus" >
-        //                             <i class="fa fa-minus"></i>
-        //                         </button>
-        //                     </div>
-        //                     <input type="text" class="form-control bg-secondary text-center" value="1" />
-        //                     <div class="input-group-btn">
-        //                         <button class="btn btn-primary btn-plus">
-        //                             <i class="fa fa-plus"></i>
-        //                         </button>
-        //                     </div>
-        //                 </div>
-        //                 <button class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i> Add To Cart</button>
-        //             </div>
-        //             <div class="d-flex pt-2">
-        //                 <p class="text-dark font-weight-medium mb-0 mr-2">Share on:</p>
-        //                 <div class="d-inline-flex">
-        //                     <a class="text-dark px-2" href="">
-        //                         <i class="fab fa-facebook-f"></i>
-        //                     </a>
-        //                     <a class="text-dark px-2" href="">
-        //                         <i class="fab fa-twitter"></i>
-        //                     </a>
-        //                     <a class="text-dark px-2" href="">
-        //                         <i class="fab fa-linkedin-in"></i>
-        //                     </a>
-        //                     <a class="text-dark px-2" href="">
-        //                         <i class="fab fa-pinterest"></i>
-        //                     </a>
-        //                 </div>
-        //             </div>
-        //         </div>
-        //     </div>
-        //     <div class="row px-xl-5">
-        //         <div class="col">
-        //             <div class="nav nav-tabs justify-content-center border-secondary mb-4">
-        //                 <a class="nav-item nav-link active" data-toggle="tab" href="#tab-pane-1">Description</a>
-        //                 <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-2">Information</a>
-        //                 <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-3">Reviews (0)</a>
-        //             </div>
-        //             <div class="tab-content">
-        //                 <div class="tab-pane fade show active" id="tab-pane-1">
-        //                     <h4 class="mb-3">Product Description</h4>
-        //                     <p>Eos no lorem eirmod diam diam, eos elitr et gubergren diam sea. Consetetur vero aliquyam invidunt duo dolores et duo sit. Vero diam ea vero et dolore rebum, dolor rebum eirmod consetetur invidunt sed sed et, lorem duo et eos elitr, sadipscing kasd ipsum rebum diam. Dolore diam stet rebum sed tempor kasd eirmod. Takimata kasd ipsum accusam sadipscing, eos dolores sit no ut diam consetetur duo justo est, sit sanctus diam tempor aliquyam eirmod nonumy rebum dolor accusam, ipsum kasd eos consetetur at sit rebum, diam kasd invidunt tempor lorem, ipsum lorem elitr sanctus eirmod takimata dolor ea invidunt.</p>
-        //                     <p>Dolore magna est eirmod sanctus dolor, amet diam et eirmod et ipsum. Amet dolore tempor consetetur sed lorem dolor sit lorem tempor. Gubergren amet amet labore sadipscing clita clita diam clita. Sea amet et sed ipsum lorem elitr et, amet et labore voluptua sit rebum. Ea erat sed et diam takimata sed justo. Magna takimata justo et amet magna et.</p>
-        //                 </div>
-        //                 <div class="tab-pane fade" id="tab-pane-2">
-        //                     <h4 class="mb-3">Additional Information</h4>
-        //                     <p>Eos no lorem eirmod diam diam, eos elitr et gubergren diam sea. Consetetur vero aliquyam invidunt duo dolores et duo sit. Vero diam ea vero et dolore rebum, dolor rebum eirmod consetetur invidunt sed sed et, lorem duo et eos elitr, sadipscing kasd ipsum rebum diam. Dolore diam stet rebum sed tempor kasd eirmod. Takimata kasd ipsum accusam sadipscing, eos dolores sit no ut diam consetetur duo justo est, sit sanctus diam tempor aliquyam eirmod nonumy rebum dolor accusam, ipsum kasd eos consetetur at sit rebum, diam kasd invidunt tempor lorem, ipsum lorem elitr sanctus eirmod takimata dolor ea invidunt.</p>
-        //                     <div class="row">
-        //                         <div class="col-md-6">
-        //                             <ul class="list-group list-group-flush">
-        //                                 <li class="list-group-item px-0">
-        //                                     Sit erat duo lorem duo ea consetetur, et eirmod takimata.
-        //                                 </li>
-        //                                 <li class="list-group-item px-0">
-        //                                     Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
-        //                                 </li>
-        //                                 <li class="list-group-item px-0">
-        //                                     Duo amet accusam eirmod nonumy stet et et stet eirmod.
-        //                                 </li>
-        //                                 <li class="list-group-item px-0">
-        //                                     Takimata ea clita labore amet ipsum erat justo voluptua. Nonumy.
-        //                                 </li>
-        //                             </ul>
-        //                         </div>
-        //                         <div class="col-md-6">
-        //                             <ul class="list-group list-group-flush">
-        //                                 <li class="list-group-item px-0">
-        //                                     Sit erat duo lorem duo ea consetetur, et eirmod takimata.
-        //                                 </li>
-        //                                 <li class="list-group-item px-0">
-        //                                     Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
-        //                                 </li>
-        //                                 <li class="list-group-item px-0">
-        //                                     Duo amet accusam eirmod nonumy stet et et stet eirmod.
-        //                                 </li>
-        //                                 <li class="list-group-item px-0">
-        //                                     Takimata ea clita labore amet ipsum erat justo voluptua. Nonumy.
-        //                                 </li>
-        //                             </ul>
-        //                         </div>
-        //                     </div>
-        //                 </div>
-        //                 <div class="tab-pane fade" id="tab-pane-3">
-        //                     <div class="row">
-        //                         <div class="col-md-6">
-        //                             <h4 class="mb-4">1 review for "Colorful Stylish Shirt"</h4>
-        //                             <div class="media mb-4">
-        //                                 <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" />
-        //                                 <div class="media-body">
-        //                                     <h6>John Doe<small> - <i>01 Jan 2045</i></small></h6>
-        //                                     <div class="text-primary mb-2">
-        //                                         <i class="fas fa-star"></i>
-        //                                         <i class="fas fa-star"></i>
-        //                                         <i class="fas fa-star"></i>
-        //                                         <i class="fas fa-star-half-alt"></i>
-        //                                         <i class="far fa-star"></i>
-        //                                     </div>
-        //                                     <p>Diam amet duo labore stet elitr ea clita ipsum, tempor labore accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.</p>
-        //                                 </div>
-        //                             </div>
-        //                         </div>
-        //                         <div class="col-md-6">
-        //                             <h4 class="mb-4">Leave a review</h4>
-        //                             <small>Your email address will not be published. Required fields are marked *</small>
-        //                             <div class="d-flex my-3">
-        //                                 <p class="mb-0 mr-2">Your Rating * :</p>
-        //                                 <div class="text-primary">
-        //                                     <i class="far fa-star"></i>
-        //                                     <i class="far fa-star"></i>
-        //                                     <i class="far fa-star"></i>
-        //                                     <i class="far fa-star"></i>
-        //                                     <i class="far fa-star"></i>
-        //                                 </div>
-        //                             </div>
-        //                             <form>
-        //                                 <div class="form-group">
-        //                                     <label for="message">Your Review *</label>
-        //                                     <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
-        //                                 </div>
-        //                                 <div class="form-group">
-        //                                     <label for="name">Your Name *</label>
-        //                                     <input type="text" class="form-control" id="name" />
-        //                                 </div>
-        //                                 <div class="form-group">
-        //                                     <label for="email">Your Email *</label>
-        //                                     <input type="email" class="form-control" id="email" />
-        //                                 </div>
-        //                                 <div class="form-group mb-0">
-        //                                     <input type="submit" value="Leave Your Review" class="btn btn-primary px-3" />
-        //                                 </div>
-        //                             </form>
-        //                         </div>
-        //                     </div>
-        //                 </div>
-        //             </div>
-        //         </div>
-        //     </div>
-        // </div>
+          <RadioGroup value={selectedSize} onChange={setSelectedSize} className="mt-4">
+            <RadioGroup.Label className="sr-only">Choose a size</RadioGroup.Label>
+            <div className="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4">
+              {product.sizes.map((size) => (
+                <RadioGroup.Option
+                  key={size.name}
+                  value={size}
+                  disabled={!size.inStock}
+                  className={({ active }) =>
+                    classNames(
+                      size.inStock
+                        ? 'cursor-pointer bg-white text-gray-900 shadow-sm'
+                        : 'cursor-not-allowed bg-gray-50 text-gray-200',
+                      active ? 'ring-2 ring-indigo-500' : '',
+                      'group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6'
+                    )
+                  }
+                >
+                  {({ active, checked }) => (
+                    <>
+                      <RadioGroup.Label as="span">{size.name}</RadioGroup.Label>
+                      {size.inStock ? (
+                        <span
+                          className={classNames(
+                            active ? 'border' : 'border-2',
+                            checked ? 'border-indigo-500' : 'border-transparent',
+                            'pointer-events-none absolute -inset-px rounded-md'
+                          )}
+                          aria-hidden="true"
+                        />
+                      ) : (
+                        <span
+                          aria-hidden="true"
+                          className="pointer-events-none absolute -inset-px rounded-md border-2 border-gray-200"
+                        >
+                          <svg
+                            className="absolute inset-0 h-full w-full stroke-2 text-gray-200"
+                            viewBox="0 0 100 100"
+                            preserveAspectRatio="none"
+                            stroke="currentColor"
+                          >
+                            <line x1={0} y1={100} x2={100} y2={0} vectorEffect="non-scaling-stroke" />
+                          </svg>
+                        </span>
+                      )}
+                    </>
+                  )}
+                </RadioGroup.Option>
+              ))}
+            </div>
+          </RadioGroup>
+        </div>
+
+        <button
+          type="submit"
+          className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+        >
+          Add to bag
+        </button>
+      </form>
+    </div>
+
+    <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
+      {/* Description and details */}
+      <div>
+        <h3 className="sr-only">Description</h3>
+
+        <div className="space-y-6">
+          <p className="text-base text-gray-900">{product.description}</p>
+        </div>
+      </div>
+
+      <div className="mt-10">
+        <h3 className="text-sm font-medium text-gray-900">Highlights</h3>
+
+        <div className="mt-4">
+          <ul role="list" className="list-disc space-y-2 pl-4 text-sm">
+            {product.highlights.map((highlight) => (
+              <li key={highlight} className="text-gray-400">
+                <span className="text-gray-600">{highlight}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div className="mt-10">
+        <h2 className="text-sm font-medium text-gray-900">Details</h2>
+
+        <div className="mt-4 space-y-6">
+          <p className="text-sm text-gray-600">{product.details}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 
     );
 }
