@@ -29,7 +29,7 @@ export default function Cart(props) {
                 <tbody key={item.id}>
                   <tr>
                     <td class="product-thumbnail">
-                      <img src={item.imageSrc} alt={item.imageAlt} class="img-fluid" />
+                      <img src={item.images[0].src} alt={item.images[0].alt} class="img-fluid" />
                     </td>
                     <td class="product-name">
                       <h2 class="h5 text-black">{item.name}</h2>
@@ -42,7 +42,7 @@ export default function Cart(props) {
                             <i class="fa fa-minus"></i>
                           </button>
                         </div>
-                        <input type="text" class="form-control form-control-sm bg-secondary text-center" value={item.quantity} />
+                        <input type="text" class="form-control form-control-sm bg-secondary text-center" value={item.qty} />
                         <div class="input-group-btn">
                           <button class="btn btn-sm btn-primary btn-plus" onClick={() => onAdd(item)}>
                             <i class="fa fa-plus"></i>

@@ -1,7 +1,7 @@
 import './App.scss';
 import Header from './components/header/Header';
 import Home from './components/home/Home';
-import data from './data/items';
+import products from './data/items';
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Cart from './components/cart/Cart';
@@ -16,7 +16,7 @@ function App() {
 //  useState(prevCount => prevCount+1)
 // }
 
-  const product = data;
+  const product = products;
   let cartItemCount = 1;
   const [cartItems, setCartItems] = useState([]);
   const onAdd = (product) => {
@@ -50,6 +50,7 @@ function App() {
       );
     }
   };
+  console.log('Products List',product)
   console.log('CartItems',cartItems)
   console.log('CartItemsCount',cartItemCount)
   return (
@@ -63,7 +64,7 @@ function App() {
           <Route path="product/:id" element={<Product  products={product} onAdd={onAdd} />} />
         </Route> */}
         <Route path='/products' element={<Products  products={product} onAdd={onAdd}  cartItemCount={cartItemCount}/>} />
-        <Route path="product/:id" element={<Product  products={product} onAdd={onAdd} />} />
+        <Route path="product/:id" element={<Product  products={product} onAdd={onAdd} cartItemCount={cartItemCount}/>} />
       </Routes>
     </>
   );

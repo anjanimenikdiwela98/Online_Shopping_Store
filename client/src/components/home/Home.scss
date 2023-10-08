@@ -25,11 +25,18 @@ $xxl: 1400px;
 	}
 	
 	.intro-excerpt {
-		
 		position: relative;
 		z-index: 4;
 		@media (min-width: $lg) {
 			max-width: 450px;
+		}
+		button{
+			background-color: burlywood;
+			border: 1px solid gray;
+			a{
+				text-decoration: none;
+				color: #000000;
+			}
 		}
 	}
 	h1 {
@@ -45,6 +52,7 @@ $xxl: 1400px;
 		color: rgba(white, .5);
 		margin-bottom: 30px;
 	}
+	
 	// .hero-img-wrap {
 	// 	position: relative;
 	// 	img {

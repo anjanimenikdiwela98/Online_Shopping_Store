@@ -232,7 +232,7 @@ export default function Header(props) {
                                                                     <table class="table table-bordered text-center mb-0">
                                                                         <tbody class="align-middle">
                                                                             <tr>
-                                                                                <td class="align-middle w-36"><img src={item.imageSrc} alt={item.imageAlt} />{item.name}</td>
+                                                                                <td class="align-middle w-36"><img src={item.images[0].src} alt={item.images[0].alt} />{item.name}</td>
                                                                                 <td class="align-middle">{item.price}</td>
                                                                                 <td class="align-middle">
                                                                                     <div class="input-group quantity mx-auto">

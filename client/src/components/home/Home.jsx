@@ -1,6 +1,7 @@
 import React from 'react';
 import './Home.scss';
 import { Link } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 
 const callouts = [
 	{
@@ -37,10 +38,10 @@ export default function Home() {
 								<h6>10% OFF YOUR FIRST ORDER</h6>
 								<h1>Reasonable Price</h1>
 								<p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
-								<p>
+								<Button>
 									{/* <a href="" class="btn btn-secondary me-2">Shop Now</a> */}
 									<Link to="/products">Shop Now</Link>
-								</p>
+								</Button>
 							</div>
 						</div>
 						<div class="col-lg-7">
@@ -64,12 +65,12 @@ export default function Home() {
 													className="h-full w-full object-cover object-center"
 												/>
 											</div>
-											<h3 className="mt-6 text-sm text-gray-500">
+											{/* <h3 className="mt-6 text-sm text-gray-500">
 												<a href={callout.href}>
 													<span className="absolute inset-0" />
 													{callout.name}
 												</a>
-											</h3>
+											</h3> */}
 											<p className="text-base font-semibold text-gray-900">{callout.description}</p>
 										</div>
 									))}

@@ -198,9 +198,279 @@ export const products = [
   ],
   details:
     'The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming "Charcoal Gray" limited release.',
-}
+},
+{
+  id: 2,
+  name: 'Nomad Tumbler',
+  price: '$35',
+  href: '#',
+  quantity: 1,
+  breadcrumbs: [
+    { id: 1, name: 'Men', href: '#' },
+    { id: 2, name: 'Clothing', href: '#' },
+  ],
+  images: [
+    {
+      src: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
+      alt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
+    },
+    {
+      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-01.jpg',
+      alt: 'Model wearing plain black basic tee.',
+    },
+    {
+      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-02.jpg',
+      alt: 'Model wearing plain gray basic tee.',
+    },
+    {
+      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg',
+      alt: 'Model wearing plain white basic tee.',
+    },
+  ],
+  colors: [
+    { name: 'White', class: 'bg-white', selectedClass: 'ring-gray-400' },
+    { name: 'Gray', class: 'bg-gray-200', selectedClass: 'ring-gray-400' },
+    { name: 'Black', class: 'bg-gray-900', selectedClass: 'ring-gray-900' },
+  ],
+  sizes: [
+    { name: 'XXS', inStock: false },
+    { name: 'XS', inStock: true },
+    { name: 'S', inStock: true },
+    { name: 'M', inStock: true },
+    { name: 'L', inStock: true },
+    { name: 'XL', inStock: true },
+    { name: '2XL', inStock: true },
+    { name: '3XL', inStock: true },
+  ],
+  description:
+    'The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: "Black". Need to add an extra pop of color to your outfit? Our white tee has you covered.',
+  highlights: [
+    'Hand cut and sewn locally',
+    'Dyed with our proprietary colors',
+    'Pre-washed & pre-shrunk',
+    'Ultra-soft 100% cotton',
+  ],
+  details:
+    'The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming "Charcoal Gray" limited release.',
+},
+{
+  id: 3,
+  name: 'Focus Paper Refill',
+  price: '$89',
+  href: '#',
+  quantity: 1,
+  breadcrumbs: [
+    { id: 1, name: 'Men', href: '#' },
+    { id: 2, name: 'Clothing', href: '#' },
+  ],
+  images: [
+    {
+      src: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
+      alt: 'Person using a pen to cross a task off a productivity paper card.',
+    },
+    {
+      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-01.jpg',
+      alt: 'Model wearing plain black basic tee.',
+    },
+    {
+      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-02.jpg',
+      alt: 'Model wearing plain gray basic tee.',
+    },
+    {
+      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg',
+      alt: 'Model wearing plain white basic tee.',
+    },
+  ],
+  colors: [
+    { name: 'White', class: 'bg-white', selectedClass: 'ring-gray-400' },
+    { name: 'Gray', class: 'bg-gray-200', selectedClass: 'ring-gray-400' },
+    { name: 'Black', class: 'bg-gray-900', selectedClass: 'ring-gray-900' },
+  ],
+  sizes: [
+    { name: 'XXS', inStock: false },
+    { name: 'XS', inStock: true },
+    { name: 'S', inStock: true },
+    { name: 'M', inStock: true },
+    { name: 'L', inStock: true },
+    { name: 'XL', inStock: true },
+    { name: '2XL', inStock: true },
+    { name: '3XL', inStock: true },
+  ],
+  description:
+    'The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: "Black". Need to add an extra pop of color to your outfit? Our white tee has you covered.',
+  highlights: [
+    'Hand cut and sewn locally',
+    'Dyed with our proprietary colors',
+    'Pre-washed & pre-shrunk',
+    'Ultra-soft 100% cotton',
+  ],
+  details:
+    'The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming "Charcoal Gray" limited release.',
+},
+{
+  id: 4,
+  name: 'Machined Mechanical Pencil',
+  price: '$39',
+  href: '#',
+  quantity: 1,
+  breadcrumbs: [
+    { id: 1, name: 'Men', href: '#' },
+    { id: 2, name: 'Clothing', href: '#' },
+  ],
+  images: [
+    {
+      src: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
+      alt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
+    },
+    {
+      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-01.jpg',
+      alt: 'Model wearing plain black basic tee.',
+    },
+    {
+      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-02.jpg',
+      alt: 'Model wearing plain gray basic tee.',
+    },
+    {
+      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg',
+      alt: 'Model wearing plain white basic tee.',
+    },
+  ],
+  colors: [
+    { name: 'White', class: 'bg-white', selectedClass: 'ring-gray-400' },
+    { name: 'Gray', class: 'bg-gray-200', selectedClass: 'ring-gray-400' },
+    { name: 'Black', class: 'bg-gray-900', selectedClass: 'ring-gray-900' },
+  ],
+  sizes: [
+    { name: 'XXS', inStock: false },
+    { name: 'XS', inStock: true },
+    { name: 'S', inStock: true },
+    { name: 'M', inStock: true },
+    { name: 'L', inStock: true },
+    { name: 'XL', inStock: true },
+    { name: '2XL', inStock: true },
+    { name: '3XL', inStock: true },
+  ],
+  description:
+    'The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: "Black". Need to add an extra pop of color to your outfit? Our white tee has you covered.',
+  highlights: [
+    'Hand cut and sewn locally',
+    'Dyed with our proprietary colors',
+    'Pre-washed & pre-shrunk',
+    'Ultra-soft 100% cotton',
+  ],
+  details:
+    'The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming "Charcoal Gray" limited release.',
+},
+{
+  id: 5,
+  name: 'Earthen Bottle',
+  price: '$48',
+  href: '#',
+  quantity: 1,
+  breadcrumbs: [
+    { id: 1, name: 'Men', href: '#' },
+    { id: 2, name: 'Clothing', href: '#' },
+  ],
+  images: [
+    {
+      src: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
+      alt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
+    },
+    {
+      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-01.jpg',
+      alt: 'Model wearing plain black basic tee.',
+    },
+    {
+      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-02.jpg',
+      alt: 'Model wearing plain gray basic tee.',
+    },
+    {
+      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg',
+      alt: 'Model wearing plain white basic tee.',
+    },
+  ],
+  colors: [
+    { name: 'White', class: 'bg-white', selectedClass: 'ring-gray-400' },
+    { name: 'Gray', class: 'bg-gray-200', selectedClass: 'ring-gray-400' },
+    { name: 'Black', class: 'bg-gray-900', selectedClass: 'ring-gray-900' },
+  ],
+  sizes: [
+    { name: 'XXS', inStock: false },
+    { name: 'XS', inStock: true },
+    { name: 'S', inStock: true },
+    { name: 'M', inStock: true },
+    { name: 'L', inStock: true },
+    { name: 'XL', inStock: true },
+    { name: '2XL', inStock: true },
+    { name: '3XL', inStock: true },
+  ],
+  description:
+    'The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: "Black". Need to add an extra pop of color to your outfit? Our white tee has you covered.',
+  highlights: [
+    'Hand cut and sewn locally',
+    'Dyed with our proprietary colors',
+    'Pre-washed & pre-shrunk',
+    'Ultra-soft 100% cotton',
+  ],
+  details:
+    'The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming "Charcoal Gray" limited release.',
+},
+{
+  id: 6,
+  name: 'Medium CCC Stuff Satchel',
+  price: '$32',
+  href: '#',
+  quantity: 1,
+  breadcrumbs: [
+    { id: 1, name: 'Men', href: '#' },
+    { id: 2, name: 'Clothing', href: '#' },
+  ],
+  images: [
+    {
+      src: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg',
+      alt: 'Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.',
+    },
+    {
+      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-01.jpg',
+      alt: 'Model wearing plain black basic tee.',
+    },
+    {
+      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-02.jpg',
+      alt: 'Model wearing plain gray basic tee.',
+    },
+    {
+      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg',
+      alt: 'Model wearing plain white basic tee.',
+    },
+  ],
+  colors: [
+    { name: 'White', class: 'bg-white', selectedClass: 'ring-gray-400' },
+    { name: 'Gray', class: 'bg-gray-200', selectedClass: 'ring-gray-400' },
+    { name: 'Black', class: 'bg-gray-900', selectedClass: 'ring-gray-900' },
+  ],
+  sizes: [
+    { name: 'XXS', inStock: false },
+    { name: 'XS', inStock: true },
+    { name: 'S', inStock: true },
+    { name: 'M', inStock: true },
+    { name: 'L', inStock: true },
+    { name: 'XL', inStock: true },
+    { name: '2XL', inStock: true },
+    { name: '3XL', inStock: true },
+  ],
+  description:
+    'The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: "Black". Need to add an extra pop of color to your outfit? Our white tee has you covered.',
+  highlights: [
+    'Hand cut and sewn locally',
+    'Dyed with our proprietary colors',
+    'Pre-washed & pre-shrunk',
+    'Ultra-soft 100% cotton',
+  ],
+  details:
+    'The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming "Charcoal Gray" limited release.',
+},
 ];
 export const reviews = { href: '#', average: 4, totalCount: 117 }
-export default data;
+export default products;
 
 
